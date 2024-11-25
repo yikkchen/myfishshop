@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ fish.fish_type }} 詳細資訊</title>
+</head>
+<body>
+    <h1>{{ fish.fish_type }} 詳細資訊</h1>
+    <p><strong>魚種：</strong>{{ fish.fish_type }}</p>
+    <p><strong>產地：</strong>{{ fish.origin }}</p>
+    <p><strong>存貨數量：</strong>{{ fish.stock_quantity }}</p>
+    {% if fish.image_url %}
+    <img src="{{ fish.image_url }}" alt="{{ fish.fish_type }}" style="max-width: 400px; height: auto;">
+    {% else %}
+    <p>暫無圖片</p>
+    {% endif %}
+    <h2>營養資訊</h2>
+    <p>{{ fish.nutritional_info }}</p>
+    <br>
+    <a href="{{ url_for('index') }}">返回列表</a>
+</body>
+</html>

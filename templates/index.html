@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}魚產列表{% endblock %}
+
+{% block content %}
+    <h1>魚產列表</h1>
+    <table border="1">
+        <tr>
+            <th>魚種</th>
+            <th>產地</th>
+            <th>存貨數量</th>
+        </tr>
+        {% for fish in fish_products %}
+        <tr>
+            <td><a href="{{ url_for('fish_detail', fish_id=fish.id) }}">{{ fish.fish_type }}</a></td>
+            <td>{{ fish.origin }}</td>
+            <td>{{ fish.stock_quantity }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+
+

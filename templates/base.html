@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}我的魚產店{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>我的魚產店</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">首頁</a>
+            <!-- 可在此擴展其他導覽連結，例如產品類別或關於我們 -->
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 我的魚產店. 版權所有.</p>
+    </footer>
+</body>
+</html>

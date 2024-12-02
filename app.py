@@ -110,4 +110,5 @@ def order_info():
     return render_template('order_info.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # 使用 Flask 內建的開發伺服器來運行應用
+    app.run(host='0.0.0.0', port=5000, debug=True)

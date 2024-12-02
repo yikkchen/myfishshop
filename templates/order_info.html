@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>訂購資訊</title>
+    <!-- 引入 Bootstrap 4 CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 可選：自訂 CSS 檔案 -->
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+</head>
+<body>
+
+    <!-- 頁面標題和簡單的容器 -->
+    <div class="container mt-5">
+        <div class="text-center">
+            <h2 class="display-4">訂購資訊</h2>
+            <p class="lead">如有任何問題，請與我們聯繫！</p>
+        </div>
+
+        <!-- 聯絡資訊區域 -->
+        <div class="card shadow-lg">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">聯絡電話</h4>
+            </div>
+            <div class="card-body">
+                <p class="h4 text-center">控八控孔控揪裡控孔控</p>
+            </div>
+        </div>
+
+        <!-- 回首頁的按鈕 -->
+        <div class="text-center mt-4">
+            <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg">回首頁</a>
+        </div>
+    </div>
+
+    <!-- 引入 jQuery 和 Bootstrap 4 JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

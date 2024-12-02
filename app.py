@@ -53,8 +53,6 @@ def create_fish():
         origin=data.get('產地'),
         stock_quantity=data.get('存貨數量'),
         image_url=data.get('圖片URL'),
-
-
         nutritional_info=data.get('營養資訊')
     )
     db.session.add(new_fish)
@@ -104,7 +102,12 @@ def index():
 @app.route('/fish/<int:fish_id>')
 def fish_detail(fish_id):
     fish = FishProduct.query.get_or_404(fish_id)
-    return render_template('detail.html', fish=fish)
+    return render_template('fish_detail.html', fish=fish)
+
+# 新增訂購資訊頁面
+@app.route('/order_info')
+def order_info():
+    return render_template('order_info.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

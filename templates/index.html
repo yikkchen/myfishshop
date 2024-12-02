@@ -3,21 +3,47 @@
 {% block title %}魚產列表{% endblock %}
 
 {% block content %}
-    <h1>魚產列表</h1>
-    <table border="1">
-        <tr>
-            <th>魚種</th>
-            <th>產地</th>
-            <th>存貨數量</th>
-        </tr>
+    <h2 class="text-center">魚產列表</h2>
+    
+    <!-- 顯示魚產的卡片 -->
+    <div class="row">
         {% for fish in fish_products %}
-        <tr>
-            <td><a href="{{ url_for('fish_detail', fish_id=fish.id) }}">{{ fish.fish_type }}</a></td>
-            <td>{{ fish.origin }}</td>
-            <td>{{ fish.stock_quantity }}</td>
-        </tr>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="{{ fish.image_url }}" class="card-img-top" alt="{{ fish.fish_type }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ fish.fish_type }}</h5>
+                    <p class="card-text"><strong>產地：</strong>{{ fish.origin }}</p>
+                    <p class="card-text"><strong>存貨數量：</strong>{{ fish.stock_quantity }}</p>
+
+                    <!-- 顯示營養資訊的 "查看更多" 按鈕 -->
+                    <button class="btn btn-info" onclick="toggleNutritionalInfo({{ fish.id }})">查看營養資訊</button>
+
+                    <!-- 隱藏的營養資訊 -->
+                    <div id="nutritional-info-{{ fish.id }}" class="nutritional-info" style="display: none;">
+                        <hr>
+                        <h6>營養資訊</h6>
+                        <p>{{ fish.nutritional_info }}</p>
+                    </div>
+
+                    <a href="{{ url_for('fish_detail', fish_id=fish.id) }}" class="btn btn-primary">放大看更清楚！</a>
+                </div>
+            </div>
+        </div>
         {% endfor %}
-    </table>
+    </div>
+
+    <!-- JavaScript: 用來顯示或隱藏營養資訊 -->
+    <script>
+        function toggleNutritionalInfo(fishId) {
+            var nutritionalInfo = document.getElementById('nutritional-info-' + fishId);
+            if (nutritionalInfo.style.display === "none") {
+                nutritionalInfo.style.display = "block";
+            } else {
+                nutritionalInfo.style.display = "none";
+            }
+        }
+    </script>
 {% endblock %}
 
 

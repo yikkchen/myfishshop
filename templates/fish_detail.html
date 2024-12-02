@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}{{ fish.fish_type }} 詳細資訊{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="text-center">{{ fish.fish_type }} 詳細資訊</h1>
+
+        <div class="row">
+            <!-- 魚類圖片 -->
+            <div class="col-md-6">
+                {% if fish.image_url %}
+                    <img src="{{ fish.image_url }}" alt="{{ fish.fish_type }}" class="img-fluid" style="max-width: 500px;">
+                {% else %}
+                    <p>暫無圖片</p>
+                {% endif %}
+            </div>
+
+            <!-- 魚類詳細資訊 -->
+            <div class="col-md-6">
+                <p><strong>魚種：</strong>{{ fish.fish_type }}</p>
+                <p><strong>產地：</strong>{{ fish.origin }}</p>
+                <p><strong>存貨數量：</strong>{{ fish.stock_quantity }}</p>
+
+                <h3>營養資訊</h3>
+                <p>{{ fish.nutritional_info }}</p>
+
+                <a href="{{ url_for('index') }}" class="btn btn-secondary">返回列表</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

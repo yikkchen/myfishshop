@@ -15,6 +15,7 @@
                     <h5 class="card-title">{{ fish.fish_type }}</h5>
                     <p class="card-text"><strong>產地：</strong>{{ fish.origin }}</p>
                     <p class="card-text"><strong>存貨數量：</strong>{{ fish.stock_quantity }}</p>
+                    <p class="card-text"><strong>每斤價格：</strong>NT$ {{ fish.price_per_kg }}</p>  <!-- 顯示每斤價格 -->
 
                     <!-- 顯示營養資訊的 "查看更多" 按鈕 -->
                     <button class="btn btn-info" onclick="toggleNutritionalInfo({{ fish.id }})">查看營養資訊</button>
@@ -45,5 +46,6 @@
         }
     </script>
 {% endblock %}
+
 
 

@@ -22,21 +22,32 @@ with app.app_context():
                 origin='日本',
                 stock_quantity=50,
                 image_url='/static/images/mackerel.jpg',
-                nutritional_info='抗癌、預防失智'
+                nutritional_info='抗癌、預防失智',
+                price_per_kg=100.0  # 每斤價格設定為 100
             ),
             FishProduct(
                 fish_type='鮭魚',
                 origin='挪威',
                 stock_quantity=20,
                 image_url='/static/images/salmon.jpg',
-                nutritional_info='富含Omega-3脂肪酸、維生素D，以及優質蛋白質，有助調節生理機能、促進新陳代謝'
+                nutritional_info='富含Omega-3脂肪酸、維生素D，以及優質蛋白質，有助調節生理機能、促進新陳代謝',
+                price_per_kg=250.0  # 每斤價格設定為 250
             ),
             FishProduct(
                 fish_type='鯛魚',
                 origin='台灣',
                 stock_quantity=100,
                 image_url='/static/images/sea_bream.jpg',
-                nutritional_info='魚肉蛋白纖維細，咀嚼後好消化吸收。而且鯛魚的蛋白質能提供人體無法合成的9種必需胺基酸，幫助人體肌肉生長及合成免疫蛋白，有助於維持免疫力，而攝取蛋白質能增加飽足感並降低食慾，對於減肥、維持體重的人來說，幫助很大'
+                nutritional_info='魚肉蛋白纖維細，咀嚼後好消化吸收。而且鯛魚的蛋白質能提供人體無法合成的9種必需胺基酸，幫助人體肌肉生長及合成免疫蛋白，有助於維持免疫力，而攝取蛋白質能增加飽足感並降低食慾，對於減肥、維持體重的人來說，幫助很大',
+                price_per_kg=180.0  # 每斤價格設定為 180
+            ),
+            FishProduct(
+                fish_type='牡蠣',
+                origin='台灣王功',
+                stock_quantity=80,
+                image_url='/static/images/oyster.jpg',
+                nutritional_info='補鈣',
+                price_per_kg=300.0  # 每斤價格設定為 300
             ),
         ]
         db.session.bulk_save_objects(sample_fishes)
@@ -53,7 +64,8 @@ def create_fish():
         origin=data.get('產地'),
         stock_quantity=data.get('存貨數量'),
         image_url=data.get('圖片URL'),
-        nutritional_info=data.get('營養資訊')
+        nutritional_info=data.get('營養資訊'),
+        price_per_kg=data.get('每斤價格')  # 新增每斤價格欄位
     )
     db.session.add(new_fish)
     db.session.commit()
@@ -81,6 +93,7 @@ def update_fish(fish_id):
     fish.stock_quantity = data.get('存貨數量', fish.stock_quantity)
     fish.image_url = data.get('圖片URL', fish.image_url)
     fish.nutritional_info = data.get('營養資訊', fish.nutritional_info)
+    fish.price_per_kg = data.get('每斤價格', fish.price_per_kg)  # 更新每斤價格
     db.session.commit()
     return jsonify(fish.to_dict())
 

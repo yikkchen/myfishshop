@@ -21,10 +21,10 @@
                 <p><strong>魚種：</strong>{{ fish.fish_type }}</p>
                 <p><strong>產地：</strong>{{ fish.origin }}</p>
                 <p><strong>存貨數量：</strong>{{ fish.stock_quantity }}</p>
-
+                
                 <h3>營養資訊</h3>
                 <p>{{ fish.nutritional_info }}</p>
-
+                <p class="card-text"><strong>每斤價格：</strong>NT$ {{ fish.price_per_kg }}</p> <!-- 顯示每斤價格 -->
                 <a href="{{ url_for('index') }}" class="btn btn-secondary">返回列表</a>
             </div>
         </div>

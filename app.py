@@ -22,7 +22,7 @@ with app.app_context():
                 origin='日本',
                 stock_quantity=50,
                 image_url='/static/images/mackerel.jpg',
-                nutritional_info='抗癌、預防失智',
+                nutritional_info='豐富的天然omega-3可以促進心血管健康，增強大腦功能，預防失智！而豐富的維生素A，更可以維持視力和皮膚的健康。對大人或小孩都是很營養的食物喔！',
                 price_per_kg=100.0  # 每斤價格設定為 100
             ),
             FishProduct(

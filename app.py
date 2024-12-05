@@ -46,7 +46,7 @@ with app.app_context():
                 origin='台灣王功',
                 stock_quantity=80,
                 image_url='/static/images/oyster.jpg',
-                nutritional_info='補鈣',
+                nutritional_info='優質的動物蛋白質，有助於修復和維持身體組織，豐富的礦物質能促進抗氧化、骨骼的健康！',
                 price_per_kg=300.0  # 每斤價格設定為 300
             ),
         ]
